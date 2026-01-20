@@ -57,13 +57,13 @@ textarea.w-input, textarea.w-select {
 }
 
 .form-block {
-  width: 48%;
+  width: 98%;
   height: auto;
   position: absolute;
 }
 
 .form-block-2 {
-  width: 48%;
+  width: 98%;
   height: auto;
   position: absolute;
   right: 0;
@@ -186,7 +186,7 @@ textarea.w-input, textarea.w-select {
     <!-- Form 2 -->
     <div class="w-form">
         <form id="email-form-4" name="email-form-4" method="GET">
-            <textarea placeholder="List 1" id="textarea"></textarea>
+            <textarea placeholder="Example text..." id="textarea"></textarea>
 
             <script>
             /* localstorage polyfill from https://gist.github.com/350433 */
@@ -273,96 +273,7 @@ textarea.w-input, textarea.w-select {
             </script>
         </form>
     </div>
-    <!-- Form 3 -->
-    <div class="form-block w-form">
-        <form id="email-form" name="email-form" method="GET">
-            <textarea class="textbox2" id="textarea1" placeholder="List 2"></textarea>
 
-            <script>
-            /* localstorage polyfill from https://gist.github.com/350433 */
-            ("undefined" == typeof window.localStorage || "undefined" == typeof window.sessionStorage) && function () {
-            function e(f) {
-            function e(a) {
-             var b;
-             b = new Date;
-             b.setTime(b.getTime() + 31536E6);
-             document.cookie = "localStorage=" + a + ("; expires=" + b.toGMTString()) + "; path=/"
-            }
-            function g(a) {
-             a = JSON.stringify(a);
-             "session" == f ? window.name = a : e(a)
-            }
-            var d = function () {
-             var a;
-             if ("session" == f) a = window.name;
-             else a: {
-               a = document.cookie.split(";");
-               var b, c;
-               for (b = 0; b < a.length; b++) {
-                 for (c = a[b];
-                   " " == c.charAt(0);) c = c.substring(1, c.length);
-                 if (0 == c.indexOf("localStorage=")) {
-                   a =
-                     c.substring(13, c.length);
-                   break a
-                 }
-               }
-               a = null
-             }
-             return a ? JSON.parse(a) : {}
-            }();
-            return {
-             length: 0,
-             clear: function () {
-               d = {};
-               this.length = 0;
-               "session" == f ? window.name = "" : e("")
-             },
-             getItem: function (a) {
-               return void 0 === d[a] ? null : d[a]
-             },
-             key: function (a) {
-               var b = 0,
-                 c;
-               for (c in d) {
-                 if (b == a) return c;
-                 b++
-               }
-               return null
-             },
-             removeItem: function (a) {
-               delete d[a];
-               this.length--;
-               g(d)
-             },
-             setItem: function (a, b) {
-               d[a] = b + "";
-               this.length++;
-               g(d)
-             }
-            }
-            }
-            if ("undefined" == typeof window.localStorage) window.localStorage = new e("local");
-            if ("undefined" == typeof window.sessionStorage) window.sessionStorage =
-            new e("session")
-            }();
-            /* the code */
-            var nn = document.getElementById("textarea1");
-            /* save */
-            var ss = function () {
-            localStorage.setItem("textarea1", nn.value);
-            }
-            /* retrieve (only on page load) */
-            if (window.localStorage) {
-            nn.value = localStorage.getItem("textarea1");
-            }
-            /* autosave onchange and every 500ms and when you close the window */
-            nn.onchange = ss();
-            setInterval(ss, 500);
-            window.onunload = ss();
-            </script>
-        </form>
-    </div>
 
     <!-- Form 4 -->
     <div class="form-block-2 w-form">
@@ -412,10 +323,10 @@ textarea.w-input, textarea.w-select {
           <body>
 
                 <!-- Use Table to Create Calculator Structure Design -->
-              <table id="calcu" width="100%" height="240px">
+              <table id="calcu" width="100%" height="240px" placeholder="0">
                   <tr>
                       <td colspan="3"><input type="text" id="result"></td>
-                      <td><input type="button" value="c" onclick="clr()" /> </td>
+                      <td><input type="button" style="background:#FFB067" value="c" onclick="clr()" /> </td>
                   </tr>
                   <tr>
                       <td><input type="button" value="1" onclick="dis('1')"
